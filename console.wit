@@ -1,0 +1,5 @@
+// console.* bindings.
+
+console-log: func(msg: string)
+
+console-error: func(msg: string)
