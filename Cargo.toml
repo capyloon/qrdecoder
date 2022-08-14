@@ -12,8 +12,8 @@ crate-type = ["cdylib"]
 default = []
 
 [dependencies]
-image = "0.24"
-rqrr = "0.5.1"
+image = {version = "0.24", default-features = false}
+quircs = "*"
 wee_alloc = {version = "0.4.5"}
 wit-bindgen-rust = {git = "https://github.com/bytecodealliance/wit-bindgen.git"}
 

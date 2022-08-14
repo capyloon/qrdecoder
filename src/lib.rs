@@ -3,7 +3,7 @@
 mod console;
 
 use image::DynamicImage;
-use rqrr::PreparedImage;
+use quircs::Quirc;
 
 wit_bindgen_rust::export!("./qrdecoder_module.wit");
 
@@ -25,12 +25,15 @@ impl qrdecoder_module::QrdecoderModule for QrdecoderModule {
 
         if let Some(source) = image::RgbaImage::from_vec(width, height, data) {
             let gray = DynamicImage::ImageRgba8(source).into_luma8();
-            let mut image = PreparedImage::prepare(gray);
+            let mut decoder = Quirc::default();
 
-            let grids = image.detect_grids();
-            for grid in grids {
-                if let Ok((_meta, result)) = grid.decode() {
-                    return Some(result);
+            let codes = decoder.identify(gray.width() as usize, gray.height() as usize, &gray);
+
+            for code in codes {
+                if let Ok(code) = code {
+                    if let Ok(decoded) = code.decode() {
+                        return Some(String::from_utf8_lossy(&decoded.payload).to_string());
+                    }
                 }
             }
             None
