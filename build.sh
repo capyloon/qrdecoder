@@ -13,6 +13,7 @@ $WASM_OPT target/wasm32-unknown-unknown/release/qrdecoder.wasm \
     -O4 -o static/qrdecoder.wasm \
     --remove-imports
 
+mv static/qrdecoder-module.js static/qrdecoder_module.js
 cp static/* ../nutria/apps/camera/qrdecoder/
 
 ls -l static/*.wasm
