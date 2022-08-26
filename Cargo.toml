@@ -15,7 +15,7 @@ default = []
 image = {version = "0.24", default-features = false}
 quircs = "*"
 wee_alloc = {version = "0.4.5"}
-wit-bindgen-rust = {git = "https://github.com/bytecodealliance/wit-bindgen.git"}
+wit-bindgen-guest-rust = {git = "https://github.com/bytecodealliance/wit-bindgen.git"}
 
 [profile.release]
 codegen-units = 1

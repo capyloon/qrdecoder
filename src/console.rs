@@ -1,6 +1,6 @@
 // console.* module
 
-wit_bindgen_rust::import!("./console.wit");
+wit_bindgen_guest_rust::import!("./console.wit");
 
 pub struct Console;
 

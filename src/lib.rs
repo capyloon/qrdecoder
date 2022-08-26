@@ -5,7 +5,7 @@ mod console;
 use image::DynamicImage;
 use quircs::Quirc;
 
-wit_bindgen_rust::export!("./qrdecoder_module.wit");
+wit_bindgen_guest_rust::export!("./qrdecoder_module.wit");
 
 use console::Console;
 
