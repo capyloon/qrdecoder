@@ -9,9 +9,6 @@ wit_bindgen_guest_rust::export!("./qrdecoder_module.wit");
 
 use console::Console;
 
-#[global_allocator]
-static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
-
 pub struct QrdecoderModule;
 
 impl qrdecoder_module::QrdecoderModule for QrdecoderModule {
