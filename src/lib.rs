@@ -11,12 +11,12 @@ pub struct QuircDecoder;
 
 impl qrdecoder::Qrdecoder for QuircDecoder {
     fn decode_qr(data: Vec<u8>, width: u32, height: u32) -> Option<String> {
-        console::msg(Level::Debug, &format!(
-            "Looking for QR code in image: {}x{} ({} bytes)",
-            width,
-            height,
-            data.len()
-        ));
+        // console::msg(Level::Debug, &format!(
+        //     "Looking for QR code in image: {}x{} ({} bytes)",
+        //     width,
+        //     height,
+        //     data.len()
+        // ));
 
         if let Some(source) = image::RgbaImage::from_vec(width, height, data) {
             let gray = DynamicImage::ImageRgba8(source).into_luma8();
