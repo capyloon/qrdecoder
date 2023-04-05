@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Qr Decoder</title>
+    <!-- <script type="module" src="../static/qrdecoder.js"></script> -->
+    <script>
+      async function run() {
+        const { decodeQr } = await import("../static/qrdecoder.js");
+        console.log(`Will run ${decodeQr}`);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Qr Decoder</h1>
+    <button onclick="run()">Run</button>
+  </body>
+</html>

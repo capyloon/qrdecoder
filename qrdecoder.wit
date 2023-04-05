@@ -1,0 +1,20 @@
+// QR Code decoder module
+
+interface types {
+  enum level {
+    info,
+    debug,
+    error,
+  }
+}
+
+interface console {
+  use self.types.{level}
+  msg: func(level: level, msg: string)
+}
+
+default world qrdecoder {
+  import console: self.console
+
+  export decode-qr: func(image: list<u8>, width: u32, height: u32) -> option<string>
+}

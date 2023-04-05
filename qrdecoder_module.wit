@@ -1,7 +1,0 @@
-// QR Code decoder module
-
-// Tries to decode a QR code out of an image and return the content.
-// @param image: rgba
-// @param width: the image width
-// @param height: the image height
-decode-qr: func(image: list<u8>, width: u32, height: u32) -> option<string>

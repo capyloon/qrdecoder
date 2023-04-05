@@ -1,19 +1,17 @@
 // QR Decoder module.
 
-mod console;
+#[macro_use]
+mod qrdecoder;
 
 use image::DynamicImage;
 use quircs::Quirc;
+use qrdecoder::{console, types::Level};
 
-wit_bindgen_guest_rust::export!("./qrdecoder_module.wit");
+pub struct QuircDecoder;
 
-use console::Console;
-
-pub struct QrdecoderModule;
-
-impl qrdecoder_module::QrdecoderModule for QrdecoderModule {
+impl qrdecoder::Qrdecoder for QuircDecoder {
     fn decode_qr(data: Vec<u8>, width: u32, height: u32) -> Option<String> {
-        Console::log(&format!(
+        console::msg(Level::Debug, &format!(
             "Looking for QR code in image: {}x{} ({} bytes)",
             width,
             height,
@@ -35,8 +33,10 @@ impl qrdecoder_module::QrdecoderModule for QrdecoderModule {
             }
             None
         } else {
-            Console::error("Failed to create RgbaImage");
+            console::msg(Level::Error, "Failed to create RgbaImage");
             None
         }
     }
 }
+
+export_qrdecoder!(QuircDecoder);

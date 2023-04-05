@@ -8,13 +8,10 @@ version = "0.1.0"
 [lib]
 crate-type = ["cdylib"]
 
-[features]
-default = []
-
 [dependencies]
 image = {version = "0.24", default-features = false}
 quircs = "*"
-wit-bindgen-guest-rust = {git = "https://github.com/bytecodealliance/wit-bindgen.git"}
+wit-bindgen = {git = "https://github.com/bytecodealliance/wit-bindgen.git"}
 
 [profile.release]
 codegen-units = 1
